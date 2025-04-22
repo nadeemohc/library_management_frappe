@@ -1,23 +1,22 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "LMS.#####",
- "creation": "2025-04-22 11:48:32.473021",
+ "autoname": "LT.#####",
+ "creation": "2025-04-22 11:55:25.759747",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "section_break_rkgu",
+  "section_break_akzi",
   "amended_from",
+  "article",
   "library_member",
-  "full_name",
-  "column_break_cymf",
-  "from_date",
-  "to_date",
-  "paid"
+  "column_break_ntzt",
+  "type",
+  "date"
  ],
  "fields": [
   {
-   "fieldname": "section_break_rkgu",
+   "fieldname": "section_break_akzi",
    "fieldtype": "Section Break"
   },
   {
@@ -25,54 +24,47 @@
    "fieldtype": "Link",
    "label": "Amended From",
    "no_copy": 1,
-   "options": "Library Membership",
+   "options": "Library Transaction",
    "print_hide": 1,
    "read_only": 1,
    "search_index": 1
   },
   {
+   "fieldname": "article",
+   "fieldtype": "Link",
+   "label": "Article",
+   "options": "Article"
+  },
+  {
    "fieldname": "library_member",
    "fieldtype": "Link",
-   "in_list_view": 1,
    "label": "Library Member",
-   "options": "Library Member",
-   "reqd": 1
+   "options": "Library Member"
   },
   {
-   "fieldname": "full_name",
-   "fieldtype": "Data",
-   "label": "Full Name",
-   "read_only": 1
-  },
-  {
-   "fieldname": "column_break_cymf",
+   "fieldname": "column_break_ntzt",
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "from_date",
-   "fieldtype": "Date",
-   "label": "From Date"
+   "fieldname": "type",
+   "fieldtype": "Select",
+   "label": "Type",
+   "options": "Issued\nReturn"
   },
   {
-   "fieldname": "to_date",
+   "fieldname": "date",
    "fieldtype": "Date",
-   "label": "To date"
-  },
-  {
-   "default": "0",
-   "fieldname": "paid",
-   "fieldtype": "Check",
-   "label": "paid"
+   "label": "Date"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-04-22 11:52:51.049550",
+ "modified": "2025-04-22 12:02:44.507270",
  "modified_by": "Administrator",
  "module": "Library Management",
- "name": "Library Membership",
+ "name": "Library Transaction",
  "naming_rule": "Expression (old style)",
  "owner": "Administrator",
  "permissions": [
