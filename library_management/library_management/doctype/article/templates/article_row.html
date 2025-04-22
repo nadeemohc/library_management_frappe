@@ -1,0 +1,28 @@
+<div class="article-card">
+    <a href="{{ doc.route }}">
+        <img src="{{ doc.image }}" alt="{{ doc.name }}" style="max-width: 100%; height: auto;" />
+    </a>
+
+    <h3>
+        <a href="{{ doc.route }}">{{ doc.name }}</a>
+    </h3>
+    
+    <p>By {{ doc.author }}</p>
+</div>
+<style>
+	.article-card {
+		border: 1px solid #ddd;
+		padding: 10px;
+		border-radius: 8px;
+		margin: 10px 0;
+		max-width: 300px;
+	}
+	.article-card img {
+		border-radius: 5px;
+	}
+	.article-card h3 {
+		margin-top: 10px;
+		font-size: 1.2rem;
+	}
+	</style>
+	
