@@ -32,22 +32,31 @@ def get_columns() -> list[dict]:
 		{
 			"label": _("image"),
 			"fieldname": "image",
-			"fieldtype": "image",
+			"fieldtype": "Image",
 		},
 		{
 			"label": _("Number of issues"),
 			"fieldname": "no_of_issues",
-			"fieldtype": "data",
+			"fieldtype": "Int",
 		},
 	]
 
 
-def get_data() -> list[list]:
-	"""Return data for the report.
-
-	The report data is a list of rows, with each row being a list of cell values.
-	"""
-	a = frappe.get_all(
-		"Library Transaction",
-		fields = ["article", "image", "issues"])
-	print('a:-',a)
+def get_data() -> list[dict]:
+	"""Return data for the report."""
+	return frappe.db.sql("""
+		SELECT
+			t.article,
+			a.image,
+			COUNT(*) AS no_of_issues
+		FROM
+			`tabLibrary Transaction` t
+		LEFT JOIN
+			`tabArticle` a ON t.article = a.name
+		WHERE
+			t.type = 'Issued' AND t.docstatus = 1
+		GROUP BY
+			t.article, a.image
+		ORDER BY
+			no_of_issues DESC
+	""", as_dict=True)
